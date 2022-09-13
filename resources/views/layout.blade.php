@@ -5,14 +5,13 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <title>Hotel &mdash; Westor</title>
 
-  <link rel="shortcut icon" href="{{ asset('template/img/logohotel.png') }}">
+  <link rel="shortcut icon" href="{{ asset('img/logohotel.png') }}">
   <!-- General CSS Files -->
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap.min.css">
   <!-- CSS Libraries -->
   <link rel="stylesheet" href="{{ asset('template/node_modules/jqvmap/dist/jqvmap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('template/node_modules/weathericons/css/weather-icons.min.css') }}">
@@ -59,7 +58,7 @@
       <div class="main-sidebar">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="/main">SARPRAS</a>
+            <a href="/main">Hotel Westore</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
             <a href="index.html">St</a>
@@ -69,16 +68,19 @@
               <li class="nav-item {{--{{ 'main' == request()->path() ? 'active' : '' }}--}}">
                 <a href="/main" class="nav-link"><i class="fas fa-home"></i><span>Dashboard</span></a>
               </li>
-              <li class="nav-item {{--{{ 'barang' == request()->path() ? 'active' : '' }}--}}">
-                <a href="/barang" class="nav-link"><i class="fas fa-th"></i><span>Barang</span></a>
+              <li class="nav-item {{--{{ 'fasilitashotel' == request()->path() ? 'active' : '' }}--}}">
+                <a href="/fasilitashotel" class="nav-link"><i class="fas fa-th"></i><span>Fasilitas Hotel</span></a>
               </li>
               {{-- <li class="nav-item {{ 'operator' == request()->path() ? 'active' : '' }}">
                 <a href="{{ url('operator') }}" class="nav-link"><i class="fas fa-users"></i> <span>Operator</span></a>       --}}
               <li class="nav-item {{--{{ 'inventory' == request()->path() ? 'active' : '' }}--}}">
-                <a href="/inventory" class="nav-link"><i class="fas fa-archive"></i> <span>Inventory</span></a>
+                <a href="/inventory" class="nav-link"><i class="fas fa-archive"></i> <span>Fasilitas Kamar</span></a>
               </li>
               <li class="nav-item {{--{{ 'peminjaman' == request()->path() ? 'active' : '' }}--}}">
-                <a href="{{ url('peminjaman') }}" class="nav-link"><i class="fa-solid fa-envelope-open-text"></i><span>Peminjaman</span></a>
+                <a href="{{ url('peminjaman') }}" class="nav-link"><i class="fa-solid fa-envelope-open-text"></i><span>Data Kamar</span></a>
+              </li>
+              <li class="nav-item {{--{{ 'peminjaman' == request()->path() ? 'active' : '' }}--}}">
+                <a href="{{ url('peminjaman') }}" class="nav-link"><i class="fa-solid fa-envelope-open-text"></i><span>History</span></a>
               </li>
             </div>
         </aside>
@@ -97,6 +99,7 @@
     </div>
   </div>
 
+  @stack('scripts')
   <!-- General JS Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -129,7 +132,6 @@
 
   <!-- Page Specific JS File -->
   <script src="{{ asset('template/assets/js/page/index-0.js') }}"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap.min.js"></script>
   @stack('scripts')
