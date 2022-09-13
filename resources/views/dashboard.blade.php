@@ -1,4 +1,4 @@
-@extends('layoutnya')
+@extends('layout')
 @section('judul','Dashboard')
 @section('content')
 <section class="section">

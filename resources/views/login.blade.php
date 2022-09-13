@@ -1,39 +1,153 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Login &mdash; Stisla</title>
-
-  <!-- General CSS Files -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-
-  <!-- CSS Libraries -->
-  <link rel="stylesheet" href="{{ asset('template/node_modules/bootstrap-social/bootstrap-social.css') }}">
-
-  <!-- Template CSS -->
-  <link rel="stylesheet" href="{{ asset('template/assets/css/style.css') }}">
-  <link rel="stylesheet" href="{{ asset('template/assets/css/components.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Login</title>
 </head>
+<style>
+    @import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+body{
+  overflow-x: hidden;
+  font-family: Roboto, sans-serif;
+}
 
+.video-container{
+  width: 100vw;
+  height: 100vh;
+}
+
+ iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+#text{
+  position: absolute;
+  color: #FFFFFF;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .video-container iframe {
+    height: 56.25vw;
+  }
+}
+@media (max-aspect-ratio: 16/9) {
+  .video-container iframe {
+    width: 177.78vh;
+  }
+}
+
+
+/* DO NOT COPY. NOT PART OF THE EXAMPLE */
+.read-article{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 999;
+  color: #000;
+  background: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-family: arial;
+  text-decoration: none;
+  box-shadow: rgb(50 50 93 / 25%) 0 0 100px -20px, rgb(0 0 0 / 30%) 0 0 60px -15px;
+}
+.read-article:hover{
+    background: #d5d5d5;
+    box-shadow: rgb(50 50 93 / 25%) 0 0 100px -20px, rgb(0 0 0 / 30%) 0 0 60px 0px;
+}
+iframe[sandbox] .read-article{
+  display: none;
+}
+.cardnya{
+    display: flex;
+    gap: 4rem;
+    background-color: rgba(255, 255, 255, 0.349);  
+    padding: 3rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+}
+.login-card1{
+    position: relative;
+    top: 7rem;
+}
+</style>
 <body>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/2_kAzyaX7SU?controls=0&autoplay=1&mute=1&playsinline=1&loop=1&playlist=2_kAzyaX7SU"></iframe>
+      </div>
+      
+      <div id="text">
+            <div class="cardnya">
+            <div class="login-card1">
+                <img src="{{ asset("img/logohotel.png") }}" alt="">
+            </div>
+            <div class="login-card2">
+                <h1 class="text-center mt-3">Login</h1>
+                <form action="{{ route('login.post') }}" method="POST">
+                    @csrf
+                    <div class="form-group mb-3">
+                      <label for="username" class="form-label">Username</label>
+                      <div class="col-12">
+                        <input type="text" id="username" class="form-control" name="username" required autofocus style="width: 22rem">
+                        @if ($errors->has('username'))
+                            <span class="text-danger">{{ $errors->first('username') }}</span>
+                        @endif
+                    </div>
+                    </div>
     
-  <!-- General JS Scripts -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="{{ asset('template/assets/js/stisla.js') }}"></script>
+                    <div class="form-group">
+                      <div class="input-group mb-1">
+                          <label class="input-group-text" for="level">Hak Akses</label>
+                          <select class="form-select" id="level" name="level" required>
+                            <option selected disabled>Choose...</option>
+                            <option value="admin">Admin</option>
+                            <option value="tamu">Tamu</option>
+                            <option value="resepsionis">Resepsionis</option>
+                          </select>
+                          @if ($errors->has('level'))
+                              <span class="text-danger">{{ $errors->first('level') }}</span>
+                          @endif
+                      </div>
+                  </div>
+    
+                      <div class="form-group">
+                          <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+                          <div class="col-12 mb-3">
+                              <input type="password" id="password" class="form-control" name="password" required>
+                              @if ($errors->has('password'))
+                                  <span class="text-danger">{{ $errors->first('password') }}</span>
+                              @endif
+                          </div>
+                      </div>
+    
+                      <div class="col-12 offset-md-4">
+                          <button type="submit" class="btn btn-primary" style="width: 10rem; margin-left: -2rem">
+                              Login
+                          </button>
+                      </div>
+    
+                      <div class="col-12 offset-md-4 mt-4">
+                        <p style="margin-left: -3rem">Belum Punya Akun ? <a href="{{ url('register') }}" >Register</a></p>
+                    </div>
+                  </form>
+            </div>
+            </div>
+      </div>
+    
 
-  <!-- JS Libraies -->
-
-  <!-- Template JS File -->
-  <script src="{{ asset('template/assets/js/scripts.js') }}"></script>
-  <script src="{{ asset('template/assets/js/custom.js') }}"></script>
-
-  <!-- Page Specific JS File -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500;1,700&family=Poppins:wght@100;400;500;600&display=swap');
+:root {
+    --fontbold: 'Poppins', sans-serif;
+    --fontbebas: 'Lora', serif;
+    --color-text-light: #3F3F3F;
+    --color-text-bold: #333;
+}
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    height: 100vw;
+}
+nav {
+    background: rgba(255, 255, 255, 0.205);
+    backdrop-filter: blur(8px);
+    z-index: 1;
+}
+.logo img {
+    position: relative;
+    top: 15px;
+    left: 8rem;
+}
+#nav-kiri {
+    margin-left: 37rem;
+    position: relative;
+    top: -2rem;
+    cursor: pointer;
+}
+.nav-item a {
+    color: var(--color-text-bold);
+    font-family: var(--fontbebas);
+}
+button.btn-login {
+    margin-top: 5px;
+    margin-left: 3.8rem;
+    width: 150px;
+    height: 30px;
+    background-color: #77684A;
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
+.main-hero {
+    display: flex;
+    position: relative;
+    top: 9.5rem;
+}
+.main-hero .textnya h1{
+    width: 40%;
+    position: relative;
+    left: 8rem;
+    font-family: var(--fontbold);
+    font-weight: 500;   
+}
+.main-hero .textnya p{
+    width: 25%;
+    position: relative;
+    left: 8rem;
+    color: var(--color-text-light);
+}
+.main-hero button.btn-book {
+    padding: 3px 25px;
+    border: 1px solid #333;
+    background: none;
+    margin-left: 8rem;
+}
+.main-hero .imagenya img {
+    position: relative;
+    right: 6rem;
+    top: -1rem;
+}
+.text-content {
+    display: flex;
+    margin-top: 13rem;
+    padding: 1px 5rem;
+}
+.text-kiri h1 {
+    position: relative;
+    left: 3.5rem;
+    width: 75%;
+}
+.text-kanan p {
+    position: relative;
+    width: 60%;
+    left: 13rem;
+    top: 1rem;
+    color: var(--color-text-light);
+}
+.text-kanan a{
+    position: relative;
+    left: 13rem;
+    top: 1rem;
+    color: var(--color-text-light);
+    text-decoration: none;
+}
