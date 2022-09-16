@@ -16,23 +16,33 @@
 
 body {
     height: 100vw;
+    padding: 0 5.5%;
 }
 nav {
     background: rgba(255, 255, 255, 0.205);
+    width: 90vw;
     backdrop-filter: blur(8px);
     z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1% 0;
 }
-.logo img {
+/* .logo img {
     position: relative;
     top: 15px;
     left: 8rem;
-}
-#nav-kiri {
+} */
+/* .position-fixed{
+    display: flex;
+    justify-content: flex-end;
+} */
+/* #nav-kiri {
     margin-left: 37rem;
     position: relative;
     top: -2rem;
     cursor: pointer;
-}
+} */
 .nav-item a {
     color: var(--color-text-bold);
     font-family: var(--fontbebas);
@@ -50,7 +60,7 @@ button.btn-login {
 .main-hero {
     display: flex;
     position: relative;
-    top: 9.5rem;
+    top: 10%;
 }
 .main-hero .textnya h1{
     width: 40%;
@@ -76,27 +86,260 @@ button.btn-login {
     right: 6rem;
     top: -1rem;
 }
-.text-content {
-    display: flex;
-    margin-top: 13rem;
-    padding: 1px 5rem;
+
+
+.text {
+    /* background-color: red; */
+    width: 100%;
+    margin-top: 13%;
+    padding: 3% 10%;
 }
-.text-kiri h1 {
+.text-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.text-kiri{
+    margin-right: 30%;
+}
+.text-kanan{
+    margin-right: -20%;
+}
+/* .text-kiri h1 {
     position: relative;
     left: 3.5rem;
     width: 75%;
-}
+} */
 .text-kanan p {
-    position: relative;
+    /* position: relative; */
     width: 60%;
-    left: 13rem;
+    /* left: 13rem; */
     top: 1rem;
     color: var(--color-text-light);
 }
 .text-kanan a{
-    position: relative;
-    left: 13rem;
+    /* position: relative; */
+    /* left: 13rem; */
     top: 1rem;
     color: var(--color-text-light);
     text-decoration: none;
 }
+
+/* IMG */
+.list-img{
+    margin-top: 10%;
+    padding: 1px 10%;
+}
+.img{
+    margin-top: 2%;
+    display: flex;
+    gap: 2%;
+}
+.img-1>img{
+    width: 400px;
+    height: 250px;
+}
+
+/* room-nav */
+.room-nav{
+    padding: 3% 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.room-right button{
+    padding: 3px 25px;
+    border: 1px solid #333;
+    background: none;
+    margin-left: 8rem;
+}
+
+/* card-room */
+.card-room{
+    padding: 3% 10%;
+}
+.list-room{
+    display: flex;
+    gap: 4%;
+}
+.spek-room{
+    background-color: rgb(228, 225, 225);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 7px 7px 10px 2px rgb(168, 179, 168);
+    /* background-color: red; */
+    width: 35%;
+}
+.spek-room img{
+    width: 100%;
+}
+.spek-room h1{
+    margin-top: 5%;
+    font-size: 20px;
+}
+.spek-room a{
+    font-size: 15px;
+}
+.text-room{
+    margin-top: 5%;
+    display: flex;
+    gap: 7%;
+}
+.price-room{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+.price-room button{
+    padding: 1px 10px;
+    border: 1px solid #333;
+    background: none;
+    /* margin-left: 8rem; */
+}
+.price-left{
+    /* background-color: red; */
+    width: 100px;
+}
+.price-left h1{
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.judul{
+    padding: 3% 19%;
+    text-align: center;
+}
+
+
+/* SWU */
+.swu{
+    padding: 3% 10%;
+    display: flex;
+}
+.swu-group{
+    /* background-color: red; */
+    width: 35%;
+}
+.swu-isi{
+    margin-top: 20%;
+    display: flex;
+    gap: 10%;
+    justify-content: space-between;
+    width: 250%;
+}
+.swu-left{
+    width: 80%;
+}
+.swu-left p{
+    font-size: 15px;
+}
+.sg-left h1{
+    width: 120%;
+    font-weight: 400;
+    font-size: 20px;
+}
+.sg-right h1{
+    font-size: 20px;
+}
+.swu-right img{
+    width: 100%;
+    height: 100%;
+}
+
+
+/* EVENTS */
+.events{
+    padding: 3% 10%;
+}
+#sa-button{
+    padding: 3px 25px;
+    border: 1px solid #333;
+    background: none;
+    font-size: 15px;
+    text-align: center;
+}
+.judul-2{
+    margin-top: 10%;
+    margin-bottom: 10%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+}
+.card-list{
+    display: flex;
+    gap: 5%;
+}
+.card-events{
+    padding: 10px;
+    /* background-color: red; */
+    width: 35%;
+}
+.card-events img{
+    width: 100%;
+}
+.card-events h1{
+    margin-top: 5%;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+.card-events a{
+    font-size: 15px;
+}
+.date-icon{
+    margin: 5% 0;
+    display: flex;
+    gap: 3%;
+    align-items: center;
+}
+.date-icon img{
+    width: 17px;
+}
+.date-icon h4{
+    margin-top: 3%;
+    font-size: 14px;
+}
+.ce-button button{
+    float: right;
+}
+
+/* FOOTER */
+footer{
+    margin-top: 50px;
+    padding: 3% 10%;
+}
+.footer-group{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.footer-logo img{
+    width: 200px;
+}
+.footer-menu{
+    display: flex;
+    gap: 15px;
+}
+.footer-menu a{
+    text-decoration: none;
+}
+.footer-sosmed{
+    display: flex;
+    gap: 15px;
+}
+.footer-sosmed img{
+    width: 20px;
+}
+
+.footer-bawah{
+    margin-top: 5%;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+
+
+
+
+
+

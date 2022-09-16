@@ -27,3 +27,11 @@ Route::resource('fasilitashotel', FasilitashotelController::class);
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/room', function () {
+    return view('room-card');
+});
+
+Route::get('/room-detail', function () {
+    return view('room-detail');
+});
