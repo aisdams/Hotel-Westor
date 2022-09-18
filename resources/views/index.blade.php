@@ -2,10 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     <title>Hotel Westore</title>
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+      <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   </head>
   <body>
@@ -31,7 +33,7 @@
             <li class="nav-item">
                 <a class="nav-link">Contact Us</a>
             </li>
-            <button type="button" class="btn-login">Login</button>
+            <a href="/login" class="text-white"><button type="button" class="btn-login">Login</button></a>
         </ul>
     </nav>
 
@@ -59,6 +61,9 @@
     </div>
 
     <div class="list-img">
+      <div class="text-rotate">
+        <h1>LUXURY HOTEL</h1>
+      </div>
       <div class="img">
         <div class="img-1">
           <img src="{{ asset('img/bathroom.png') }}" alt="">
@@ -87,68 +92,130 @@
     </div>
 
     <div class="card-room">
-      <div class="list-room">
-        <div class="spek-room">
-          <img src="{{ asset('img/bedroom1.jpg') }}" alt="">
-          <h1>COMFORT ROOM WITH BALCONY</h1>
-          
-          <div class="text-room">
-            <p>50m2</p>
-            <p>2 Beds</p>
-            <p>1 Bedroom</p>
-            <p>Balcony</p>
-          </div>
-          <a href="">See Detail</a>
-
-          <div class="price-room">
-            <div class="price-left">
-              <h1>Start From $1000/Night</h1>
+      <!-- Swiper -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="col">
+            <img src="{{ asset('img/bedroom1.jpg') }}" alt="">
+            <h3 style="text-align:left;color: #333;" class="mt-3 mb-3">COMFORT ROOM WITH BALCONY</h3>
+            <div class="text-flexnya d-flex">
+              <p>⦿ 50m²</p>
+              <p>⦿ 2 Beds</p>
+              <p>⦿ 1 Bathroom</p>
+              <p>⦿ Balcony</p>
             </div>
-            <button type="button" class="btn-book mt-2">Check Availibility</button>
+            <p><a href="" style="color:#333;float:left;">See Detail</a></p>
+            <div class="linenya" style="width: 350px; height:1px; background:#8C3200; margin-top:2rem;" ></div>
+              <div class="text-p d-flex mt-3">
+              <p style="width: 50%; margin-left:-3rem">Start From $ 1000/NIGHT</p>
+                <button type="submit" style="border: 1px solid #333; padding: 1px 10px; height:30px ;background:white;margin-top:.6rem;">CHECK AVAILIBILITY</button>
+            </div>
           </div>
+          
         </div>
-        <div class="spek-room">
-          <img src="{{ asset('img/bedroom1.jpg') }}" alt="">
-          <h1>COMFORT ROOM WITH BALCONY</h1>
-          
-          <div class="text-room">
-            <p>50m2</p>
-            <p>2 Beds</p>
-            <p>1 Bedroom</p>
-            <p>Balcony</p>
-          </div>
-          <a href="">See Detail</a>
-
-          <div class="price-room">
-            <div class="price-left">
-              <h1>Start From $1000/Night</h1>
+        <div class="swiper-slide">
+          <div class="col">
+            <img src="{{ asset('img/bedroom2.jpeg') }}" alt="">
+            <h3 style="text-align:left;color: #333;" class="mt-3 mb-3">COMFORT ROOM WITH BALCONY</h3>
+            <div class="text-flexnya d-flex">
+              <p>⦿ 50m²</p>
+              <p>⦿ 2 Beds</p>
+              <p>⦿ 1 Bathroom</p>
+              <p>⦿ Balcony</p>
             </div>
-            <button type="button" class="btn-book mt-2">Check Availibility</button>
+            <p><a href="" style="color:#333;float:left;">See Detail</a></p>
+            <div class="linenya" style="width: 350px; height:1px; background:#8C3200; margin-top:2rem;" ></div>
+              <div class="text-p d-flex mt-3">
+              <p style="width: 50%; margin-left:-3rem">Start From $ 1000/NIGHT</p>
+                <button type="submit" style="border: 1px solid #333; padding: 1px 10px; height:30px ;background:white;margin-top:.6rem;">CHECK AVAILIBILITY</button>
+            </div>
           </div>
+          
         </div>
-        <div class="spek-room">
-          <img src="{{ asset('img/bedroom1.jpg') }}" alt="">
-          <h1>COMFORT ROOM WITH BALCONY</h1>
-          
-          <div class="text-room">
-            <p>50m2</p>
-            <p>2 Beds</p>
-            <p>1 Bedroom</p>
-            <p>Balcony</p>
-          </div>
-          <a href="">See Detail</a>
-
-          <div class="price-room">
-            <div class="price-left">
-              <h1>Start From $1000/Night</h1>
+        <div class="swiper-slide">
+          <div class="col">
+            <img src="{{ asset('img/bedroom3.webp') }}" alt="">
+            <h3 style="text-align:left;color: #333;" class="mt-3 mb-3">COMFORT ROOM WITH BALCONY</h3>
+            <div class="text-flexnya d-flex">
+              <p>⦿ 50m²</p>
+              <p>⦿ 2 Beds</p>
+              <p>⦿ 1 Bathroom</p>
+              <p>⦿ Balcony</p>
             </div>
-            <button type="button" class="btn-book mt-2">Check Availibility</button>
+            <p><a href="" style="color:#333;float:left;">See Detail</a></p>
+            <div class="linenya" style="width: 350px; height:1px; background:#8C3200; margin-top:2rem;" ></div>
+              <div class="text-p d-flex mt-3">
+              <p style="width: 50%; margin-left:-3rem">Start From $ 1000/NIGHT</p>
+                <button type="submit" style="border: 1px solid #333; padding: 1px 10px; height:30px ;background:white;margin-top:.6rem;">CHECK AVAILIBILITY</button>
+            </div>
+          </div>
+          
+        </div>
+        <div class="swiper-slide">
+          <div class="col">
+            <img src="{{ asset('img/bedroom 4.jpg') }}" alt="">
+            <h3 style="text-align:left;color: #333;" class="mt-3 mb-3">COMFORT ROOM WITH BALCONY</h3>
+            <div class="text-flexnya d-flex">
+              <p>⦿ 50m²</p>
+              <p>⦿ 2 Beds</p>
+              <p>⦿ 1 Bathroom</p>
+              <p>⦿ Balcony</p>
+            </div>
+            <p><a href="" style="color:#333;float:left;">See Detail</a></p>
+            <div class="linenya" style="width: 350px; height:1px; background:#8C3200; margin-top:2rem;" ></div>
+              <div class="text-p d-flex mt-3">
+              <p style="width: 50%; margin-left:-3rem">Start From $ 1000/NIGHT</p>
+                <button type="submit" style="border: 1px solid #333; padding: 1px 10px; height:30px ;background:white;margin-top:.6rem;">CHECK AVAILIBILITY</button>
+            </div>
+          </div>
+          
+        </div>
+        <div class="swiper-slide">
+          <div class="col">
+            <img src="{{ asset('img/bedroom 5.jpg') }}" alt="">
+            <h3 style="text-align:left;color: #333;" class="mt-3 mb-3">COMFORT ROOM WITH BALCONY</h3>
+            <div class="text-flexnya d-flex">
+              <p>⦿ 50m²</p>
+              <p>⦿ 2 Beds</p>
+              <p>⦿ 1 Bathroom</p>
+              <p>⦿ Balcony</p>
+            </div>
+            <p><a href="" style="color:#333;float:left;">See Detail</a></p>
+            <div class="linenya" style="width: 350px; height:1px; background:#8C3200; margin-top:2rem;" ></div>
+              <div class="text-p d-flex mt-3">
+              <p style="width: 50%; margin-left:-3rem">Start From $ 1000/NIGHT</p>
+                <button type="submit" style="border: 1px solid #333; padding: 1px 10px; height:30px ;background:white;margin-top:.6rem;">CHECK AVAILIBILITY</button>
+            </div>
+          </div>
+          
+        </div>
+        <div class="swiper-slide">
+          <div class="col">
+            <img src="{{ asset('img/bedroom 6.jpg') }}" alt="">
+            <h3 style="text-align:left;color: #333;" class="mt-3 mb-3">COMFORT ROOM WITH BALCONY</h3>
+            <div class="text-flexnya d-flex">
+              <p>⦿ 50m²</p>
+              <p>⦿ 2 Beds</p>
+              <p>⦿ 1 Bathroom</p>
+              <p>⦿ Balcony</p>
+            </div>
+            <p><a href="" style="color:#333;float:left;">See Detail</a></p>
+            <div class="linenya" style="width: 350px; height:1px; background:#8C3200; margin-top:2rem;" ></div>
+              <div class="text-p d-flex mt-3">
+              <p style="width: 50%; margin-left:-3rem">Start From $ 1000/NIGHT</p>
+                <button type="submit" style="border: 1px solid #333; padding: 1px 10px; height:30px ;background:white;margin-top:.6rem;">CHECK AVAILIBILITY</button>
+            </div>
           </div>
         </div>
       </div>
+    </br>
+  </br>
+      <div class="swiper-pagination"></div>
     </div>
 
-    <h1 class="judul">The Scott Resort & Spa is an ode to discovert, a love letter to live lived on the borderlands</h1>
+
+    <h1 class="judul mt-5 mb-5 pt-5 pb-3">The Scott Resort & Spa is an ode to discovert, a love letter to live lived on the borderlands</h1>
 
     <div class="swu">
 
@@ -256,11 +323,11 @@
           <img src="{{ asset('img/logohotel.png') }}" alt="">
         </div>
         <div class="footer-menu">
-          <a href="">OFFERS</a>
-          <a href="">EVENTS</a>
-          <a href="">About Us</a>
-          <a href="">Room</a>
-          <a href="">Contact Us</a>
+          <a href="" class="text-dark">OFFERS</a>
+          <a href="" class="text-dark">EVENTS</a>
+          <a href="" class="text-dark">About Us</a>
+          <a href="" class="text-dark">Room</a>
+          <a href="" class="text-dark">Contact Us</a>
         </div>
         <div class="footer-sosmed">
           <img src="{{ asset('img/instagram.png') }}" alt="">
@@ -269,7 +336,7 @@
         </div>
       </div>
      </div>
-
+     <div class="line-footer mt-3" style="width: 100wh;height:1px;background:rgba(51, 51, 51, 0.178)"></div>
      <div class="footer-bawah">
       <div class="fb-left">
         <p>All rights reserved, 2022   Privacy</p>
@@ -282,8 +349,23 @@
     
 
 
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 3,
+        spaceBetween: 20,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+  </script>
   </body>
 </html>

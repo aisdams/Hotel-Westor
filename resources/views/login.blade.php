@@ -108,21 +108,6 @@ iframe[sandbox] .read-article{
                     </div>
                     </div>
     
-                    <div class="form-group">
-                      <div class="input-group mb-1">
-                          <label class="input-group-text" for="level">Hak Akses</label>
-                          <select class="form-select" id="level" name="level" required>
-                            <option selected disabled>Choose...</option>
-                            <option value="admin">Admin</option>
-                            <option value="tamu">Tamu</option>
-                            <option value="resepsionis">Resepsionis</option>
-                          </select>
-                          @if ($errors->has('level'))
-                              <span class="text-danger">{{ $errors->first('level') }}</span>
-                          @endif
-                      </div>
-                  </div>
-    
                       <div class="form-group">
                           <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
                           <div class="col-12 mb-3">

@@ -39,11 +39,10 @@ class AuthController extends Controller
     {
         $request->validate([
             'username' => 'required',
-            'level' => 'required',
             'password' => 'required',
         ]);
    
-        $credentials = $request->only('username', 'password', 'level');
+        $credentials = $request->only('username', 'password');
         if (Auth::attempt($credentials)) {
             return redirect()->intended('dashboard')
                         ->withSuccess('You have Successfully loggedin');
@@ -61,7 +60,6 @@ class AuthController extends Controller
     {  
         $request->validate([
             'username' => 'required',
-            'level' => 'required',
             'notelp' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
@@ -96,7 +94,7 @@ class AuthController extends Controller
     {
       return User::create([
         'username' => $data['username'],
-        'level' => $data['level'],
+        'level' => 'Admin',
         'notelp' => $data['notelp'],
         'email' => $data['email'],
         'password' => Hash::make($data['password'])

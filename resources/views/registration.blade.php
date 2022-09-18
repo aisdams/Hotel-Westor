@@ -94,7 +94,7 @@ iframe[sandbox] .read-article{
             <div class="register-card1">
                 <img src="{{ asset("template/img/logohotel.png") }}" alt="">
             </div>
-            <div class="register-card2">
+            <div class="register-card2" style="position:relative;right:2rem">
                 <h1 class="text-center">Register</h1>
                 <form action="{{ route('register.post') }}" method="POST">
                     @csrf
@@ -114,21 +114,6 @@ iframe[sandbox] .read-article{
                             <input type="number" id="notelp" class="form-control" name="notelp" required autofocus style="width: 22rem">
                             @if ($errors->has('notelp'))
                                 <span class="text-danger">{{ $errors->first('notelp') }}</span>
-                            @endif
-                        </div>
-                    </div>
-    
-                    <div class="form-group">
-                        <div class="input-group mb-3">
-                            <label class="input-group-text" for="level">Hak Akses</label>
-                            <select class="form-select" id="level" name="level" required>
-                              <option selected disabled>Choose...</option>
-                              <option value="admin">Admin</option>
-                              <option value="tamu">Tamu</option>
-                              <option value="resepsionis">Resepsionis</option>
-                            </select>
-                            @if ($errors->has('level'))
-                                <span class="text-danger">{{ $errors->first('level') }}</span>
                             @endif
                         </div>
                     </div>

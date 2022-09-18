@@ -16,7 +16,7 @@ class FasilitashotelController extends Controller
     public function index()
     {
         $fasilitashotel = Fasilitashotel::paginate(5);
-        return view('fasilitashotel',compact('fasilitashotel'));
+        return view('fasilitashotel/fasilitashotel',compact('fasilitashotel'));
     }
 
     /**
@@ -26,7 +26,7 @@ class FasilitashotelController extends Controller
      */
     public function create()
     {
-        return view('fasilitashotelcreate');
+        return view('fasilitashotel/fasilitashotelcreate');
     }
 
     /**
@@ -69,7 +69,7 @@ class FasilitashotelController extends Controller
     public function edit($id)
     {
         $fasilitashotel = Fasilitashotel::findorfail($id);
-        return view('fasilitashoteledit',compact('fasilitashotel'));
+        return view('fasilitashotel/fasilitashoteledit',compact('fasilitashotel'));
     }
 
     /**
@@ -88,7 +88,7 @@ class FasilitashotelController extends Controller
             $fasilitashotel->image = $request->file('image')->getClientOriginalName();
             $fasilitashotel -> save();
         }
-        return redirect('/fa$fasilitashotel')->with('success', "Data Fasilitas hotel Berhasil Di Update");
+        return redirect('/fasilitashotel')->with('success', "Data Fasilitas hotel Berhasil Di Update");
     }
 
     /**
