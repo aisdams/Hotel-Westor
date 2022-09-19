@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DatapemesananController;
 use App\Http\Controllers\FasilitashotelController;
+use App\Http\Controllers\FasilitaskamarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +25,10 @@ Route::get('dashboard', [AuthController::class, 'dashboard']);
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::resource('fasilitashotel', FasilitashotelController::class);
+Route::resource('fasilitaskamar', FasilitaskamarController::class);
+Route::resource('datapemesanan', DatapemesananController::class);
+
+Route::get('/datapemesanan/createid/{id}',[DatapemesananController::class,'createid'])->name('createid');
 
 
 

@@ -46,8 +46,6 @@
               {{-- <a href="/operator" class="dropdown-item has-icon">
                 <i class="fas fa-users"></i> Operator
               </a> --}}
-              <a href="/panduan" target="_blank" class="dropdown-item has-icon">
-                <i class="fas fa-book"></i>Panduan Pengguna</a>
               <a href="{{ route('logout') }}" class="dropdown-item has-icon text-danger">
                 <i class="fas fa-sign-out-alt"></i> Logout
               </a>
@@ -65,19 +63,17 @@
           </div>
           <ul class="sidebar-menu">
               <li class="menu-header">Menu</li>
-              <li class="nav-item {{--{{ 'main' == request()->path() ? 'active' : '' }}--}}">
-                <a href="/main" class="nav-link"><i class="fas fa-home"></i><span>Dashboard</span></a>
+              <li class="nav-item {{ 'dashboard' == request()->path() ? 'active' : '' }}">
+                <a href="/dashboard" class="nav-link"><i class="fas fa-home"></i><span>Dashboard</span></a>
               </li>
-              <li class="nav-item {{--{{ 'fasilitashotel' == request()->path() ? 'active' : '' }}--}}">
+              <li class="nav-item {{ 'fasilitashotel' == request()->path() ? 'active' : '' }}">
                 <a href="/fasilitashotel" class="nav-link"><i class="fas fa-th"></i><span>Fasilitas Hotel</span></a>
               </li>
-              {{-- <li class="nav-item {{ 'operator' == request()->path() ? 'active' : '' }}">
-                <a href="{{ url('operator') }}" class="nav-link"><i class="fas fa-users"></i> <span>Operator</span></a>       --}}
-              <li class="nav-item {{--{{ 'inventory' == request()->path() ? 'active' : '' }}--}}">
-                <a href="/inventory" class="nav-link"><i class="fas fa-archive"></i> <span>Fasilitas Kamar</span></a>
+              <li class="nav-item {{ 'fasilitaskamar' == request()->path() ? 'active' : '' }}">
+                <a href="/fasilitaskamar" class="nav-link"><i class="fas fa-archive"></i> <span>Fasilitas Kamar</span></a>
               </li>
-              <li class="nav-item {{--{{ 'peminjaman' == request()->path() ? 'active' : '' }}--}}">
-                <a href="{{ url('peminjaman') }}" class="nav-link"><i class="fa-solid fa-envelope-open-text"></i><span>Data Kamar</span></a>
+              <li class="nav-item {{ 'datapemesanan' == request()->path() ? 'active' : '' }}">
+                <a href="{{ url('datapemesanan') }}" class="nav-link"><i class="fa-solid fa-envelope-open-text"></i><span>Data Kamar</span></a>
               </li>
               <li class="nav-item {{--{{ 'peminjaman' == request()->path() ? 'active' : '' }}--}}">
                 <a href="{{ url('peminjaman') }}" class="nav-link"><i class="fa-solid fa-envelope-open-text"></i><span>History</span></a>
