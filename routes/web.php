@@ -24,14 +24,19 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::resource('fasilitashotel', FasilitashotelController::class);
 
+
+
+// ========== T A M U ==========
 Route::get('/', function () {
     return view('index');
 });
-
 Route::get('/room', function () {
     return view('room-card');
 });
-
 Route::get('/room-detail', function () {
     return view('room-detail');
 });
+Route::get('/room-book', function () {
+    return view('room-book');
+});
+// ==============================
