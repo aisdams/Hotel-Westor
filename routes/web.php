@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TamuController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\TamupesanController;
 use App\Http\Controllers\ResepsionisController;
 use App\Http\Controllers\DatapemesananController;
 use App\Http\Controllers\FasilitashotelController;
@@ -53,14 +54,25 @@ Route::resource('fasilitaskamar', FasilitaskamarController::class)->middleware('
 Route::resource('datapemesanan', DatapemesananController::class)->middleware('auth');
 Route::resource('dataresepsionis', DataResepsionisController::class)->middleware('auth');
 
+
+
+// ========== T A M U ==========
 Route::get('/', function () {
     return view('index');
 });
-
 Route::get('/room', function () {
     return view('room-card');
 });
-
 Route::get('/room-detail', function () {
     return view('room-detail');
 });
+
+// ========== RESEPSIONIS
+Route::get('/room-book', [TamupesanController::class, 'index']);
+Route::get('/create-rb', [TamupesanController::class, 'create'])->name('create-rb');
+Route::post('/simpan-rb', [TamupesanController::class, 'store'])->name('simpan-rb');
+
+// Route::get('/room-book', function () {
+//     return view('room-book');
+// });
+// ==============================

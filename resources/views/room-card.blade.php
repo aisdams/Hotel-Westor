@@ -90,7 +90,7 @@
                         </div>
                     </div>
                     <div class="button-bn">
-                        <button type="button" class="btn-book mt-3"><a href="/room">Book Now</a></button>
+                        <button type="button" class="btn-book mt-3"><a href="/room-book">Book Now</a></button>
                     </div>
                 </div>
             </div>
@@ -148,7 +148,7 @@
                         </div>
                     </div>
                     <div class="button-bn">
-                        <button type="button" class="btn-book mt-3"><a href="/room">Book Now</a></button>
+                        <button type="button" class="btn-book mt-3"><a href="/room-book">Book Now</a></button>
                     </div>
                 </div>
             </div>
@@ -206,7 +206,7 @@
                         </div>
                     </div>
                     <div class="button-bn">
-                        <button type="button" class="btn-book mt-3"><a href="/room">Book Now</a></button>
+                        <button type="button" class="btn-book mt-3"><a href="/room-book">Book Now</a></button>
                     </div>
                 </div>
             </div>

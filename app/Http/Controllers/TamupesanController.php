@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\Datapemesanan;
 use App\Models\Fasilitaskamar;
-use App\Models\User;
-use Illuminate\Http\Request;
+use App\Http\Controllers\TamupesanController;
 
-class DatapemesananController extends Controller
+class TamupesanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +18,7 @@ class DatapemesananController extends Controller
     {
         $fasilitaskamar = Fasilitaskamar::all();
         $datapemesanan = Datapemesanan::with('fasilitaskamar')->get();
-        return view('datakamar/datapemesanan', compact('datapemesanan','fasilitaskamar'));
+        return view('room-book', compact('datapemesanan','fasilitaskamar'));
     }
 
     /**
@@ -64,9 +64,7 @@ class DatapemesananController extends Controller
      */
     public function edit($id)
     {
-        $fasilitaskamar = Fasilitaskamar::all();
-        $datapemesanan = Datapemesanan::findorfail($id);
-        return view('datakamar/datapemesananedit', compact('fasilitaskamar','datapemesanan'));
+        //
     }
 
     /**
@@ -78,10 +76,7 @@ class DatapemesananController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $datapemesanan = Datapemesanan::findorfail($id);
-        $datapemesanan->update();
-        $datapemesanan->save();
-        return redirect('/datapemesanan')->with('success','Data Pemesanan Berhasil Di Update');
+        //
     }
 
     /**
@@ -92,8 +87,6 @@ class DatapemesananController extends Controller
      */
     public function destroy($id)
     {
-        $datapemesanan = Datapemesanan::findorfail($id);
-        $datapemesanan->delete();
-        return redirect('datapemesanan');
+        //
     }
 }
