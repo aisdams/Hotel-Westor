@@ -5,7 +5,8 @@
     <div class="card-body">
         <form action="{{ url('fasilitaskamar') }}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
-            <div class="mb-3">
+            <div class="row align-items-start">
+            <div class="col mb-3">
                 <label class="form-label">Type Kamar</label>
                 <select class="form-control form-select" required name="tipekamar" id="val_equipfc">
                     <option selected disabled>Pilih Type Kamar</option>
@@ -19,22 +20,25 @@
                     <option value="Penthouse Room">Penthouse Room'</option>
                 </select>
             </div>
-            <div class="mb-3">
+            <div class="col mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nama Fasilitas</label>
                 <select class="form-select form-control" required aria-label="Default select example" name="fasilitashotel_id">
-                    <option selected>Nama Fasilitas</option>
+                    <option selected disabled>Nama Fasilitas</option>
                     @foreach($fasilitashotel as $item)
                     <option value="{{ $item->id }}">{{  $item->namafasilitas }}</option>
                     @endforeach
                 </select>
             </div>
-            <div class="mb-3">
+            </div>
+            <div class="row align-items-start">
+            <div class="col mb-3">
                 <label class="form-label">Total Room</label>
                 <input type="number" required placeholder="Total Room" class="form-control" name="jumlahkamar">
             </div>
-            <div class="mb-3">
+            <div class="col mb-3">
                 <label class="form-label">Total Room Unused</label>
                 <input type="number" required placeholder="Total Room Yang Tak Terpakai" class="form-control" name="jumlahkamar_takterpakai">
+            </div>
             </div>
             <div class="mb-3">
                 {{-- <label class="form-label">Jumlah Terpinjam</label> --}}

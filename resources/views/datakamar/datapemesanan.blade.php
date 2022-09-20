@@ -53,8 +53,8 @@
                     <td>{{ $item->bprorng }}</td>
                     <td>{{ $item->firstname }}</td>
                     <td>{{ $item->lastname }}</td>
-                    <td name="user_id">{{ $item->user->email }}</td>
-                    <td name="user_id">{{ $item->user->notelp }}</td>
+                    <td>{{ $item->email }}</td>
+                    <td>{{ $item->notelp }}</td>
                     <td>{{ $item->fasilitaskamar->tipekamar }}</td>
                     <td>{{ $item->spesialrequest }}</td>
                     <td>{{ $item->tanggal_checkin }}</td>

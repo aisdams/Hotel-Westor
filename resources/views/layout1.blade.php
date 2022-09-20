@@ -8,7 +8,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>Pluto - Responsive Bootstrap Admin Panel Templates</title>
+      <link rel="icon" type="image/x-icon" href="{{ asset('img/logohotel.png') }}">
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -70,21 +70,29 @@
                      <li>
                         <a href="/dashboard"><i class="fas fa-home purple_color2"></i> <span>Dashboard</span></a>
                      </li>
+                     @if (auth()->user()->level == "admin")
                      <li>
                         <a href="/fasilitashotel"><i class="fa-solid fa-hotel yellow_color"></i> <span>Fasilitas Hotel</span></a>
                      </li>
-                     <li><a href="/fasilitaskamar"><i class="fa-regular fa-hospital-o orange_color"></i> <span>Fasilitas Hotel</span></a>
+                     @endif
+                     @if (auth()->user()->level == "admin")
+                     <li><a href="/fasilitaskamar"><i class="fa-regular fa-hospital-o orange_color"></i> <span>Fasilitas Kamar</span></a>
                      </li>
+                     @endif
+                     @if (auth()->user()->level == "admin")
                      <li>
                         <a href="/datapemesanan"><i class="fa-solid fa-book-bookmark blue2_color"></i> <span>Data Kamar</span></a>
                      </li>
+                     @endif
+                     @if (auth()->user()->level == "resepsionis")
                      <li class="active">
-                        <a href="#additional_page" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa-solid fa-clock-rotate-left red_color"></i> <span>History</span></a>
+                        <a href="#additional_page" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa-solid fa-book-open-reader red_color"></i> <span>Resepsionis</span></a>
                         <ul class="collapse list-unstyled" id="additional_page">
                            <li>
-                              <a href="project.html">> <span>History Pemesanan</span></a>
+                              <a href="/dataresepsionis">> <span>Data Pemesanan</span></a>
                            </li>
                      </li>
+                     @endif
                   </ul>
                </div>
             </nav>
@@ -97,7 +105,7 @@
                      <div class="full">
                         <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
                         <div class="logo_section">
-                           <a href="index.html"><img class="img-responsive" src="images/logo/logo.png" alt="#" /></a>
+                           <a href="index.html"><img class="img-responsive" src="{{ asset('template1/images/logo/logo.png') }}" alt="#" /></a>
                         </div>
                         <div class="right_topbar">
                            <div class="icon_info">

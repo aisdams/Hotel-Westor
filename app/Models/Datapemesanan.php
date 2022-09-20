@@ -10,13 +10,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Datapemesanan extends Model
 {
     protected $fillable = [
-        'bprorng','firstname', 'lastname', 'user_id','fasilitaskamar_id','spesialrequest', 'tanggal_checkin', 'tanggal_checkout'
+        'bprorng','firstname', 'lastname', 'email','notelp','fasilitaskamar_id','spesialrequest', 'tanggal_checkin', 'tanggal_checkout'
     ];
     use HasFactory;
+    protected $table = "datapemesanans";
+    protected $primaryKey = 'id';
     public function fasilitaskamar(){
         return $this->hasMany(Fasilitaskamar::class);
-    }
-    public function user(){
-        return $this->hasMany(User::class);
     }
 }

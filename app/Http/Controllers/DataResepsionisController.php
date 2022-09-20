@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Datapemesanan;
-use App\Models\Fasilitaskamar;
-use App\Models\User;
 use Illuminate\Http\Request;
 
-class DatapemesananController extends Controller
+class DataResepsionisController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +14,7 @@ class DatapemesananController extends Controller
      */
     public function index()
     {
-        $fasilitaskamar = Fasilitaskamar::all();
-        $datapemesanan = Datapemesanan::with('fasilitaskamar')->get();
-        return view('datakamar/datapemesanan', compact('datapemesanan','fasilitaskamar'));
+        
     }
 
     /**
@@ -28,9 +24,7 @@ class DatapemesananController extends Controller
      */
     public function create()
     {
-        $fasilitaskamar = Fasilitaskamar::all();
-        $datapemesanan = Datapemesanan::with('fasilitaskamar')->paginate('5');
-        return view('datakamar/datapemesanancreate', compact('datapemesanan','fasilitaskamar'));
+        //
     }
 
     /**
@@ -41,8 +35,7 @@ class DatapemesananController extends Controller
      */
     public function store(Request $request)
     {
-        Datapemesanan::create($request->all());
-        return redirect('/datapemesanan')->with('success','Data Pemesanan Berhasil Di Tambahkan');
+        //
     }
 
     /**
@@ -64,9 +57,7 @@ class DatapemesananController extends Controller
      */
     public function edit($id)
     {
-        $fasilitaskamar = Fasilitaskamar::all();
-        $datapemesanan = Datapemesanan::findorfail($id);
-        return view('datakamar/datapemesananedit', compact('fasilitaskamar','datapemesanan'));
+        //
     }
 
     /**
@@ -78,10 +69,7 @@ class DatapemesananController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $datapemesanan = Datapemesanan::findorfail($id);
-        $datapemesanan->update();
-        $datapemesanan->save();
-        return redirect('/datapemesanan')->with('success','Data Pemesanan Berhasil Di Update');
+        //
     }
 
     /**
@@ -92,8 +80,6 @@ class DatapemesananController extends Controller
      */
     public function destroy($id)
     {
-        $datapemesanan = Datapemesanan::findorfail($id);
-        $datapemesanan->delete();
-        return redirect('datapemesanan');
+        //
     }
 }
