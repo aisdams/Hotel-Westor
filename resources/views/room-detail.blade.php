@@ -44,7 +44,7 @@
             <div class="crdt-content">
                 <div class="crdtc-isi">
                         <h1>Type Deluxe</h1>
-                        <button type="button" class="btn-book mt-0"><a href="/room-book">Book Now</a></button>
+                        <button type="button" class="btn-book mt-0"><a href="/create-rb">Book Now</a></button>
                 </div>
             </div>
         </div>

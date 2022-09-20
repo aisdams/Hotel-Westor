@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Datapemesanan;
+use App\Models\Fasilitaskamar;
+use App\Http\Controllers\TamupesanController;
 
 class TamupesanController extends Controller
 {
@@ -13,7 +16,9 @@ class TamupesanController extends Controller
      */
     public function index()
     {
-        //
+        $fasilitaskamar = Fasilitaskamar::all();
+        $datapemesanan = Datapemesanan::with('fasilitaskamar')->get();
+        return view('room-book', compact('datapemesanan','fasilitaskamar'));
     }
 
     /**
@@ -23,7 +28,9 @@ class TamupesanController extends Controller
      */
     public function create()
     {
-        //
+        $fasilitaskamar = Fasilitaskamar::all();
+        $datapemesanan = Datapemesanan::with('fasilitaskamar')->paginate('5');
+        return view('room-book', compact('datapemesanan','fasilitaskamar'));
     }
 
     /**
@@ -34,7 +41,8 @@ class TamupesanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Datapemesanan::create($request->all());
+        return redirect('/datapemesanan')->with('success','Data Pemesanan Berhasil Di Tambahkan');
     }
 
     /**

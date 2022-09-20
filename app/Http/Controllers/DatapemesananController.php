@@ -30,7 +30,7 @@ class DatapemesananController extends Controller
     {
         $fasilitaskamar = Fasilitaskamar::all();
         $datapemesanan = Datapemesanan::with('fasilitaskamar')->paginate('5');
-        return view('datakamar/datapemesanancreate', compact('datapemesanan','fasilitaskamar'));
+        return view('room-book', compact('datapemesanan','fasilitaskamar'));
     }
 
     /**
