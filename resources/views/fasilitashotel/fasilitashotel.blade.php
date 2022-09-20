@@ -46,7 +46,7 @@
                     <th scope="row">{{ $loop->iteration }}</th>
                     <td>{{ $item->namafasilitas }}</td>
                     <td>{{ $item->keterangan }}</td>
-                    <td><img src="{{ asset('img/'.$item->image) }}" alt="" style="width: 100px"></td>
+                    <td><img src="{{ asset('img/'.$item->image) }}" alt="" style="width: 100px; position:relative;"></td>
                     <td style="display: flex">
                         <div class="dis d-flex">
                             <a href="{{--{{ url('/fasilitashotel/detail/'.$item->id) --}}" class="btn btn-icon btn-info ms-1 text-white"><i

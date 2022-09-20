@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('bprorng');
             $table->string('firstname');
             $table->string('lastname');
-            $table->foreignId('user_id');
+            $table->string('email');
+            $table->string('notelp');
             $table->foreignId('fasilitaskamar_id');
             $table->text('spesialrequest');
             $table->date('tanggal_checkin');
