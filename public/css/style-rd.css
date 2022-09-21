@@ -97,7 +97,7 @@ button.btn-login {
 
 
 .container-content{
-    padding: 0 15%;
+    padding: 0 5%;
     position: absolute;
     margin-top: 80rem;
 }
@@ -115,20 +115,19 @@ button.btn-login {
     gap: 2rem;
 }
 .rdcl-top img{
-    width: 350px;
+    width: 450px;
     height: 300px;
 }
 .rdcl-bottom img{
-    width: 350px;
+    width: 450px;
     height: 300px;
 }
 .rdc-right p{
     font-size: 16px;
-    margin-top: 2rem;
 }
 
 .line-center{
-    margin-top: 135rem;
+    margin-top: 107rem;
     position: absolute;
     background-color: rgb(70, 61, 61);
     width: 100%;
@@ -138,7 +137,7 @@ button.btn-login {
 
 .container-fasilitas{
     position: absolute;
-    margin-top: 140rem;
+    margin-top: 110rem;
     padding: 0 15%;
     display: flex;
     gap: 7rem;
@@ -186,3 +185,39 @@ button.btn-login {
     width: 60%;
 }
 
+
+/* FOOTER */
+footer{
+    padding: 3% 10%;
+    position: relative;
+    top: 140rem;
+}
+.footer-group{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.footer-logo img{
+    width: 200px;
+}
+.footer-menu{
+    display: flex;
+    gap: 15px;
+}
+.footer-menu a{
+    text-decoration: none;
+}
+.footer-sosmed{
+    display: flex;
+    gap: 15px;
+}
+.footer-sosmed img{
+    width: 20px;
+}
+
+.footer-bawah{
+    margin-top: 5%;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}

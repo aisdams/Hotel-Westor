@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('notelp');
             $table->foreignId('fasilitaskamar_id');
-            $table->text('spesialrequest');
+            $table->text('spesialrequest')->nullable();
             $table->date('tanggal_checkin');
             $table->date('tanggal_checkout');
             $table->timestamps();

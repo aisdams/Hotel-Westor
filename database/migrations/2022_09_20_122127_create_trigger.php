@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tamupesans', function (Blueprint $table) {
+        Schema::create('trigger', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tamupesans');
+        Schema::dropIfExists('trigger');
     }
 };

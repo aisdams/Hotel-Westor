@@ -1,4 +1,4 @@
-@extends('layout1')
+@extends('layout')
 @section('judul','Data Pemesanan')
 @section('content')
 @push('style')
@@ -25,12 +25,10 @@
 @endpush
 <div class="card">
     <div class="card-body">
-        <a href="{{ url('datapemesanan/create') }}" class="btn btn-icon icon-left btn-primary mb-4"><i
+        <a href="{{ url('checkpemesanan/create') }}" class="btn btn-icon icon-left btn-primary mb-4"><i
                 class="fas fa-plus"></i><span class="px-2">Tambah</span></a>
-        <a href="" class="btn btn-icon icon-left btn-success mb-4"></i><i
-                class="fas fa-file-excel"></i><span class="px-2">Export Excel</span></a>
         <a href="" class="btn btn-icon icon-left btn-danger mb-4"></i><i class="fa-solid fa-file-pdf"></i><span class="px-2">Export PDF</span></a>
-        <table class="table table-hover table-bordered dataTable table-responsive" id="fasilitas">
+        <table class="table table-bordered dataTable table-responsive" id="fasilitas">
             <thead style="font-size: 14px"  class="table-dark">
                 <tr>
                     <th scope="col">No</th>
@@ -47,9 +45,9 @@
                 </tr>
             </thead>
             <tbody class="alldata">
-                @foreach ( $datapemesanan as $index => $item )
+                @foreach ( $data as $item )
                 <tr>
-                    <th scope="row">{{ $index + $datapemesanan->firstItem() }}</th>
+                    <th scope="row">{{ $loop->iteration }}</th>
                     <td>{{ $item->bprorng }}</td>
                     <td>{{ $item->firstname }}</td>
                     <td>{{ $item->lastname }}</td>
@@ -61,11 +59,11 @@
                     <td>{{ $item->tanggal_checkout }}</td>
                     <td style="display: flex">
                         <div class="dis d-flex">
-                            <a href="{{--{{ url('/fasilitashotel/detail/'.$item->id) --}}" class="btn btn-icon btn-info ms-1 text-white"><i
+                            <a href="{{ url('/checkpemesanan/detail/'.$item->id)}}" class="btn btn-icon btn-info ms-1 text-white"><i
                                     class="fas fa-eye"></i></a>
-                            <a href="{{ url('datapemesanan/'.$item->id.'/edit') }}" class="btn btn-icon btn-warning ms-1"><i
+                            <a href="{{ url('checkpemesanan/'.$item->id.'/edit') }}" class="btn btn-icon btn-warning ms-1"><i
                                     class="fas fa-pen"></i></a>
-                            <form action="{{ url('datapemesanan',$item->id) }}" method="POST">
+                            <form action="{{ url('checkpemesanan',$item->id) }}" method="POST">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="btn btn-icon btn-danger delete ms-1"

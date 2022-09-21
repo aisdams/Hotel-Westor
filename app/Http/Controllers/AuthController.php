@@ -104,7 +104,7 @@ class AuthController extends Controller
     {
       return User::create([
         'username' => $data['username'],
-        'level' => 'Admin',
+        'level' => 'tamu',
         'notelp' => $data['notelp'],
         'email' => $data['email'],
         'password' => Hash::make($data['password'])

@@ -38,20 +38,20 @@
 
     <div class="container-rd">
         <div class="crd-content">
-            <img src="{{ asset('img/bedroom3.png') }}" alt="">
+            <img src="https://wallpaperaccess.com/full/6688260.jpg" alt="" style="width: 100%;">
         </div>
-        <div class="crd-title">
+        <div class="crd-title" style="position:relative;top:-15rem">
             <div class="crdt-content">
                 <div class="crdtc-isi">
                         <h1>Type Deluxe</h1>
-                        <button type="button" class="btn-book mt-0"><a href="/create-rb">Book Now</a></button>
+                        <button type="button" class="btn-book mt-0"><a href="#booknow">Book Now</a></button>
                 </div>
             </div>
         </div>
     </div>
     
     <div class="container-content">
-        <div class="rd-content">
+        <div class="rd-content" style="position: relative;top: -18rem;">
             <div class="rdc-left">
                 <div class="rdcl-top">
                     <img src="{{ asset('img/bathroom-interior2.png') }}" alt="">
@@ -121,7 +121,104 @@
             </div>
         </div>
     </div>
+  </div>
+  <div class="container mb-5" style="position:relative;top: 140rem;" id="booknow">
+    <h1 >Hotel Booking Confirmation</h1>
+    <p class="fw-light mt-4">Thank you for choosing Longueville Manor for your forthcoming visit to Jersey. It is our pleasure to </br> confirm your reservation as follows:</p>
+    <div class="room-book mt-4">
+      <form action="{{ url('/index/account/mytrip') }}" method="post" enctype="multipart/form-data">
+        {{ csrf_field() }}
+        <div class="row g-2">
+          <div class="col">
+            <label for="colFormLabel" class="col-form-label col-form-label">Number Of Guest :</label>
+            <input type="number" class="form-control" placeholder="Input Number Of Guest" id="colFormLabel" name="bprorng" style="width: 380px;">
+          </div>
+          <div class="col position-relative" style="right: 10rem">
+              <label for="colFormLabel" class="col-sm-2 col-form-label col-form-label">Room Type :</label>
+            <select required class="form-control form-select" name="fasilitaskamar_id" id="fasilitaskamar_id" style="width: 380px;">
+              <option selected disabled>Choose Room Type</option>
+              @foreach ($fasilitaskamar as $item)
+              <option value="{{ $item->id }}">{{ $item->tipekamar }}</option>
+              @endforeach
+          </select>
+          </div>
 
+          <div class="row g-2">
+            <div class="col">
+            <label for="colFormLabel" class="form-label col-form-label">First Name :</label>
+              <input type="text" class="form-control" placeholder=" Input your first name" aria-label="First name" name="firstname" style="width: 380px;">
+            </div>
+            <div class="col position-relative" style="right: 10rem">
+              <label for="colFormLabel" class="form-label col-form-label">Last Name :</label>
+              <input type="text" class="form-control" placeholder="Input your last name" aria-label="Last name" name="lastname" style="width: 380px;">
+            </div>
+        </div>
+
+        <div class="row g-2">
+          <div class="col">
+            <label for="colFormLabel" class="col-sm-2 col-form-label col-form-label">Email :</label>
+            <input type="email" class="form-control" id="colFormLabel" placeholder="Input Your Email" name="email" style="width: 380px;">
+          </div>
+          <div class="col position-relative" style="right: 10rem">
+            <label for="colFormLabel" class="col-sm-2 col-form-label col-form-label">No Telp :</label>
+            <input type="number" class="form-control" id="colFormLabel" placeholder="Input Your Number Phone" name="notelp" style="width: 380px;">
+          </div>
+        </div>
+        <div class="col">
+          <label for="colFormLabel" class="col-sm-2 col-form-label col-form-label">Special Request (Optional)</label>
+          <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 100px;width: 780px;" name="spesialrequest" ></textarea>
+            <label for="floatingTextarea">Special Request</label>
+          </div>
+        </div>
+        <div class="row g-2">
+          <div class="col">
+            <label for="colFormLabel" class="col-sm-2 col-form-label">Tgl. Check In</label>
+            <input type="date" class="form-control" id="colFormLabel" placeholder="col-form-label" name="tanggal_checkin" style="width: 380px;">
+          </div>
+          <div class="col position-relative" style="right: 10rem">
+            <label for="colFormLabel" class="col-sm-2 col-form-label" style="width: 300px">Tgl Check Out</label>
+            <input type="date" class="form-control" id="colFormLabel" placeholder="col-form-label" name="tanggal_checkout" style="width: 380px;">
+          </div>
+        </div>
+        <button type="submit" class="btn-book mt-4" style="background-color: #dd9b0b;
+        padding: 3px 25px;height: 40px;width: 100px;border-radius: 5px;border:none;color:#fff;margin-left:20rem">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+    <footer>
+        <div class="footer-atas">
+         <div class="footer-group">
+           <div class="footer-logo">
+             <img src="{{ asset('img/logohotel.png') }}" alt="">
+           </div>
+           <div class="footer-menu">
+             <a href="" class="text-dark">OFFERS</a>
+             <a href="" class="text-dark">EVENTS</a>
+             <a href="" class="text-dark">About Us</a>
+             <a href="" class="text-dark">Room</a>
+             <a href="" class="text-dark">Contact Us</a>
+           </div>
+           <div class="footer-sosmed">
+             <img src="{{ asset('img/instagram.png') }}" alt="">
+             <img src="{{ asset('img/twitter.png') }}" alt="">
+             <img src="{{ asset('img/facebook.png') }}" alt="">
+           </div>
+         </div>
+        </div>
+        <div class="line-footer mt-3" style="width: 100wh;height:1px;background:rgba(51, 51, 51, 0.178)"></div>
+        <div class="footer-bawah">
+         <div class="fb-left">
+           <p>All rights reserved, 2022   Privacy</p>
+         </div>
+         <div class="fb-right">
+           <p>Terms of use</p>
+         </div>
+        </div>
+       </footer>
 
     
 

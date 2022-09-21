@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -9,7 +9,6 @@
       <!-- Link Swiper's CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="icon" type="image/x-icon" href="{{ asset('img/logohotel.png') }}">
   </head>
   <body>
 
@@ -34,7 +33,16 @@
             <li class="nav-item">
                 <a class="nav-link">Contact Us</a>
             </li>
-            <a href="/login" class="text-white"><button type="button" class="btn-login">Login</button></a>
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{ Auth::user()->username }}
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{ url('/index/account')}}">Your Account</a></li>
+                    <li><a class="dropdown-item" href="#">Help/FAQ</a></li>
+                    <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
+                  </ul>
+            </li>
         </ul>
     </nav>
 

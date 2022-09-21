@@ -81,7 +81,7 @@
                      @endif
                      @if (auth()->user()->level == "admin")
                      <li>
-                        <a href="/datapemesanan"><i class="fa-solid fa-book-bookmark blue2_color"></i> <span>Data Kamar</span></a>
+                        <a href="/checkpemesanan"><i class="fa-solid fa-book-bookmark blue2_color"></i> <span>Data Kamar</span></a>
                      </li>
                      @endif
                      @if (auth()->user()->level == "resepsionis")
@@ -89,7 +89,7 @@
                         <a href="#additional_page" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa-solid fa-book-open-reader red_color"></i> <span>Resepsionis</span></a>
                         <ul class="collapse list-unstyled" id="additional_page">
                            <li>
-                              <a href="/dataresepsionis">> <span>Data Pemesanan</span></a>
+                              <a href="/dataresepsionis">> <span>Data Pemesanan User</span></a>
                            </li>
                      </li>
                      @endif

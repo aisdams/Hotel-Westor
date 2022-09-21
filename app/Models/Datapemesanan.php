@@ -13,10 +13,8 @@ class Datapemesanan extends Model
         'bprorng','firstname', 'lastname', 'email','notelp','fasilitaskamar_id','spesialrequest', 'tanggal_checkin', 'tanggal_checkout'
     ];
     use HasFactory;
+    protected $primaryKey = "id";
     public function fasilitaskamar(){
-        return $this->hasMany(Fasilitaskamar::class);
-    }
-    public function user(){
-        return $this->hasMany(User::class);
+        return $this->belongsTo(Fasilitaskamar::class);
     }
 }

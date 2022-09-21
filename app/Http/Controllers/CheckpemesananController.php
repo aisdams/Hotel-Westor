@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Datapemesanan;
 use App\Models\Fasilitaskamar;
-use App\Http\Controllers\TamupesanController;
 
-class TamupesanController extends Controller
+class CheckpemesananController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +15,17 @@ class TamupesanController extends Controller
      */
     public function index()
     {
-        $fasilitaskamar = Fasilitaskamar::all();
-        $datapemesanan = Datapemesanan::with('fasilitaskamar')->get();
-        return view('room-book', compact('datapemesanan','fasilitaskamar'));
+        $data = Datapemesanan::latest()->with('fasilitaskamar')->paginate(10);
+        return view('datakamar.datapemesanan', compact('data'));
     }
+    
+    public function detail($id)
+    {
+        $fasilitaskamar = Fasilitaskamar::find($id);
+        $datapemesanan = Datapemesanan::with('fasilitaskamar')->find($id);
+        return view('datakamar.detaildatapemesanan', compact('fasilitaskamar','datapemesanan'));
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -30,7 +36,7 @@ class TamupesanController extends Controller
     {
         $fasilitaskamar = Fasilitaskamar::all();
         $datapemesanan = Datapemesanan::with('fasilitaskamar')->paginate('5');
-        return view('room-book', compact('datapemesanan','fasilitaskamar'));
+        return view('datakamar.datapemesanancreate', compact('datapemesanan','fasilitaskamar'));
     }
 
     /**
@@ -42,7 +48,7 @@ class TamupesanController extends Controller
     public function store(Request $request)
     {
         Datapemesanan::create($request->all());
-        return redirect('/datapemesanan')->with('success','Data Pemesanan Berhasil Di Tambahkan');
+        return redirect('/checkpemesanan')->with('success','Data Pemesanan Berhasil Di Tambahkan');
     }
 
     /**
@@ -64,7 +70,9 @@ class TamupesanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $fasilitaskamar = Fasilitaskamar::all();
+        $datapemesanan = Datapemesanan::findorfail($id);
+        return view('datakamar.datapemesananedit', compact('fasilitaskamar','datapemesanan'));
     }
 
     /**
@@ -76,7 +84,11 @@ class TamupesanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $datapemesanan = Datapemesanan::findorfail($id);
+        $datapemesanan -> update($request->all());
+        $datapemesanan->save(); 
+
+        return redirect('checkpemesanan')->with('success', 'Data Pemesanan berhasil diedit');
     }
 
     /**
@@ -87,6 +99,8 @@ class TamupesanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $datapemesanan = Datapemesanan::findorfail($id);
+        $datapemesanan->delete();
+        return redirect('checkpemesanan');
     }
 }

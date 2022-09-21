@@ -31,13 +31,13 @@
             <li class="nav-item">
                 <a class="nav-link">Contact Us</a>
             </li>
-            <button type="button" class="btn-login">Login</button>
+            <a href="/login" class="text-white"><button type="button" class="btn-login">Login</button></a>
         </ul>
     </nav>
 
     
     <div class="container-form">
-      <form action="{{ route('simpan-rb') }}" method="post" enctype="multipart/form-data">
+      <form action="{{ url('datapemesanan') }}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="cf-content">
             <div class="cfc-title">
@@ -67,7 +67,7 @@
                 <div class="row">
                     <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Email</label>
                     <div class="col-sm-10">
-                      <input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="col-form-label-lg" name="email">
+                      <input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Input Your Email" name="email">
                     </div>
                 </div>
             </div>
@@ -84,11 +84,12 @@
                 <div class="row">
                     <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Room Type</label>
                 <div class="col-sm-10">
-                    <select class="form-select form-select-lg" aria-label="Default select example" name="fasilitaskamar_id">
-                      @foreach ( $fasilitaskamar as $fasilitaskamar)
-                      <option value="{{ $fasilitaskamar->id }}">{{ $fasilitaskamar->tipekamar }}</option>
-                      @endforeach
-                      </select>
+                  <select required class="form-control form-select" name="fasilitaskamar_id" id="fasilitaskamar_id">
+                    <option selected disabled>Choose Room Type</option>
+                    @foreach ($fasilitaskamar as $item)
+                    <option value="{{ $item->id }}">{{ $item->tipekamar }}</option>
+                    @endforeach
+                </select>
                 </div>
                 </div>
             </div>

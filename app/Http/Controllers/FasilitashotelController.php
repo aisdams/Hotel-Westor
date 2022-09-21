@@ -24,6 +24,11 @@ class FasilitashotelController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function detail($id)
+    {
+        $fasilitashotel = Fasilitashotel::find($id);
+        return view('fasilitashotel.detailfasilitashotel', compact('fasilitashotel'));
+    }
     public function create()
     {
         return view('fasilitashotel/fasilitashotelcreate');

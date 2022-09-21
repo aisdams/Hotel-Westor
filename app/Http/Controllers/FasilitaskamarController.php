@@ -19,6 +19,13 @@ class FasilitaskamarController extends Controller
         return view('fasilitaskamar/fasilitaskamar', compact('fasilitaskamar'));
     }
 
+    public function detail($id)
+    {
+        $fasilitashotel = Fasilitashotel::find($id);
+        $fasilitaskamar = Fasilitaskamar::with('fasilitashotel')->find($id);
+        return view('fasilitaskamar.detailfasilitaskamar', compact('fasilitashotel','fasilitaskamar'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

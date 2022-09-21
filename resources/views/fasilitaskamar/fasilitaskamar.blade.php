@@ -27,8 +27,6 @@
     <div class="card-body">
         <a href="{{ url('fasilitaskamar/create') }}" class="btn btn-icon icon-left btn-primary mb-4"><i
                 class="fas fa-plus"></i><span class="px-2">Tambah</span></a>
-        <a href="" class="btn btn-icon icon-left btn-success mb-4"></i><i
-                class="fas fa-file-excel"></i><span class="px-2">Export Excel</span></a>
         <a href="" class="btn btn-icon icon-left btn-danger mb-4"></i><i class="fa-solid fa-file-pdf"></i><span class="px-2">Export PDF</span></a>
         <table class="table table-bordered dataTable table-responsive" id="fasilitas">
             <thead style="font-size: 14px"  class="table-dark">
@@ -57,7 +55,7 @@
                     <td>RP. {{ $item->tarif }}</td>
                     <td style="display: flex">
                         <div class="dis d-flex">
-                            <a href="{{--{{ url('/fasilitashotel/detail/'.$item->id) --}}" class="btn btn-icon btn-info ms-1 text-white"><i
+                            <a href="{{ url('/fasilitaskamar/detail/'.$item->id) }}" class="btn btn-icon btn-info ms-1 text-white"><i
                                     class="fas fa-eye"></i></a>
                             <a href="{{ url('fasilitaskamar/'.$item->id.'/edit') }}" class="btn btn-icon btn-warning ms-1"><i
                                     class="fas fa-pen"></i></a>

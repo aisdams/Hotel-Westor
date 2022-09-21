@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Datapemesanan;
+use App\Models\Fasilitaskamar;
 use Illuminate\Http\Request;
 
 class DataResepsionisController extends Controller
@@ -14,7 +15,15 @@ class DataResepsionisController extends Controller
      */
     public function index()
     {
-        
+        $data = Datapemesanan::latest()->with('fasilitaskamar')->paginate(10);
+        return view('resepsionis.dataresepsionis', compact('data'));
+    }
+
+    public function detail($id)
+    {
+        $fasilitaskamar = Fasilitaskamar::find($id);
+        $datapemesanan = Datapemesanan::with('fasilitaskamar')->find($id);
+        return view('resepsionis.detaildataresepsionis', compact('fasilitaskamar','datapemesanan'));
     }
 
     /**
