@@ -31,7 +31,7 @@
             <li class="nav-item">
                 <a class="nav-link">Contact Us</a>
             </li>
-            <button type="button" class="btn-login">Login</button>
+            <a href="/login"><button type="button" class="btn-login">Login</button></a>
         </ul>
     </nav>
 

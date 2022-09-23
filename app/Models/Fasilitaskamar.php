@@ -13,7 +13,7 @@ class Fasilitaskamar extends Model
     protected $primaryKey = "id";
     protected $table = "fasilitaskamars";
     protected $fillable = [
-        'tipekamar','fasilitashotel_id','jumlahkamar', 'jumlahkamar_tersedia', 'jumlahkamar_takterpakai', 'jumlahkamar_pinjam', 'tarif'
+        'tipekamar','fasilitashotel_id','fasilitaskamar','jumlahkamar', 'jumlahkamar_tersedia', 'jumlahkamar_takterpakai', 'jumlahkamar_pinjam', 'tarif'
     ];
     public function fasilitashotel()
     {

@@ -1,4 +1,4 @@
-@extends('layout1')
+@extends('layout')
 @section('judul','Fasilitas Kamar')
 @section('content')
 @push('style')
@@ -9,17 +9,20 @@
     table.dataTable thead .sorting_desc:before,
     table.dataTable thead .sorting_asc_disabled:before,
     table.dataTable thead .sorting_desc_disabled:before {
-        right: 1em;
-        font-size: 30px !important;
+      right: 1em;
+      content: "\2191" !important;
+      font-size: 18px !important;
+      margin-bottom: .3rem !important;
     }
-
     table.dataTable thead .sorting:after,
     table.dataTable thead .sorting_asc:after,
     table.dataTable thead .sorting_desc:after,
     table.dataTable thead .sorting_asc_disabled:after,
     table.dataTable thead .sorting_desc_disabled:after {
-        right: 0.5em;
-        font-size: 30px !important;
+      right: 0.5em;
+      content: "\2193" !important;
+      font-size: 18px !important;
+      margin-bottom: .3rem !important;
     }
 </style>
 @endpush
@@ -27,11 +30,12 @@
     <div class="card-body">
         <a href="{{ url('fasilitaskamar/create') }}" class="btn btn-icon icon-left btn-primary mb-4"><i
                 class="fas fa-plus"></i><span class="px-2">Tambah</span></a>
-        <a href="" class="btn btn-icon icon-left btn-danger mb-4"></i><i class="fa-solid fa-file-pdf"></i><span class="px-2">Export PDF</span></a>
-        <table class="table table-bordered dataTable table-responsive" id="fasilitas">
-            <thead style="font-size: 14px"  class="table-dark">
+        <a href="/exportkamar" class="btn btn-icon icon-left btn-danger mb-4"></i><i class="fa-solid fa-file-pdf"></i><span class="px-2">Export PDF</span></a>
+        <table class="table table-bordered dataTable table-hover table-sm" id="fasilitas">
+            <thead style="font-size: 14px"  class="table-success">
                 <tr>
                     <th scope="col">No</th>
+                    <th scope="col">Nama Hotel</th>
                     <th scope="col">Type Kamar</th>
                     <th scope="col">Nama Fasilitas</th>
                     <th scope="col">Jumlah Kamar</th>
@@ -46,8 +50,9 @@
                 @foreach ( $fasilitaskamar as $index => $item )
                 <tr>
                     <th scope="row">{{ $index + $fasilitaskamar->firstItem() }}</th>
+                    <td>{{ $item->fasilitashotel->namahotel }}</td>
                     <td>{{ $item->tipekamar }}</td>
-                    <td>{{ $item->fasilitashotel->namafasilitas }}</td>
+                    <td>{{ $item->fasilitaskamar }}</td>
                     <td>{{ $item->jumlahkamar }}</td>
                     <td>{{ $item->jumlahkamar_tersedia }}</td>
                     <td>{{ $item->jumlahkamar_takterpakai }}</td>
@@ -130,6 +135,8 @@
             columnDefs: [{
                 paging: true,
                 scrollX: true,
+                processing: true,
+                serverSide: true,
                 lengthChange: true,
                 searching: true,
                 ordering: true,

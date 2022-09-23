@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Fasilitashotel;
 use App\Models\Fasilitaskamar;
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 
 class FasilitaskamarController extends Controller
@@ -26,6 +27,14 @@ class FasilitaskamarController extends Controller
         return view('fasilitaskamar.detailfasilitaskamar', compact('fasilitashotel','fasilitaskamar'));
     }
 
+    public function exportkamar(PDF $pdfCreator)
+    {
+        $fasilitaskamar = Fasilitaskamar::all();
+        view()->share('fasilitaskamar', '$fasilitaskamar');
+        $pdf = $pdfCreator->loadView('fasilitaskamar.fasilitaskamarpdf', ['fasilitaskamar' => $fasilitaskamar]);
+        return $pdf->download('datafasilitaskamar.pdf');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -45,11 +54,24 @@ class FasilitaskamarController extends Controller
      */
     public function store(Request $request)
     {
+        // $request->validate([
+        //     'addMoreInputFields.*.fasilitaskamar' => 'required',
+        //     'tipekamar' => 'required',
+        //     'fasilitashotel_id' => 'required',
+        //     'jumlahkamar' => 'required',
+        //     'jumlahkamar_takterpakai' => 'required',
+        //     'tarif' => 'required',
+        // ]);
+        $input = $request->all();
+        $fasilitaskamar = $input['fasilitaskamar'];
+        $input= implode(',',$fasilitaskamar);
+        
         $tersedia = $request->jumlahkamar - $request->jumlahkamar_takterpakai;
         Fasilitaskamar::create([
             'tipekamar' => $request->tipekamar,
             'fasilitashotel_id' => $request->fasilitashotel_id,
             'jumlahkamar' => $request->jumlahkamar,
+            'fasilitaskamar' => $input,
             'jumlahkamar_tersedia' => $tersedia,
             'jumlahkamar_takterpakai' => $request->jumlahkamar_takterpakai,
             'jumlahkamar_pinjam' => $request->jumlahkamar_pinjam,
@@ -92,11 +114,16 @@ class FasilitaskamarController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $input = $request->all();
+        $fasilitaskamar = $input['fasilitaskamar'];
+        $input= implode(',',$fasilitaskamar);
+        
         $fasilitaskamar = Fasilitaskamar::findorfail($id);
         $tersedia = $request->jumlahkamar - ($request->jumlahkamar_takterpakai + $fasilitaskamar->jumlahkamar_pinjam);
         $fasilitaskamar->update([
             'tipekamar' => $request->tipekamar,
             'fasilitashotel_id' => $request->fasilitashotel_id,
+            'fasilitaskamar' => $input,
             'jumlahkamar' => $request->jumlahkamar,
             'jumlahkamar_tersedia' => $tersedia,
             'jumlahkamar_takterpakai' => $request->jumlahkamar_takterpakai,

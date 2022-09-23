@@ -1,4 +1,4 @@
-@extends('layout1')
+@extends('layout')
 @section('judul','Detail Fasilitas Hotel')
 @section('content')
 <div class="row">
@@ -16,9 +16,12 @@
                 <table class="table table-stripped text-dark fw-bold">
                     <tbody>
                         <tr>
-                            <th>Nama Fasilitas</th>
+                            <th>Alamat</th>
                             <td>:</td>
-                            <td>{{ $fasilitashotel->namafasilitas }}</td> 
+                            <td>{{ $fasilitashotel->alamat }}</td> 
+                            <th>Nama Hotel</th>
+                            <td>:</td>
+                            <td>{{ $fasilitashotel->namahotel }}</td> 
                         </tr>
                         <tr>
                             <th>Keterangan</th>

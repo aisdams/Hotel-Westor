@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 use App\Models\Datapemesanan;
+use App\Models\Fasilitashotel;
 use App\Models\Fasilitaskamar;
 
 class CheckpemesananController extends Controller
@@ -15,15 +17,16 @@ class CheckpemesananController extends Controller
      */
     public function index()
     {
-        $data = Datapemesanan::latest()->with('fasilitaskamar')->paginate(10);
+        $data = Datapemesanan::latest()->with('fasilitaskamar','fasilitashotel')->paginate(10);
         return view('datakamar.datapemesanan', compact('data'));
     }
     
     public function detail($id)
     {
+        $fasilitashotel = Fasilitashotel::find($id);
         $fasilitaskamar = Fasilitaskamar::find($id);
-        $datapemesanan = Datapemesanan::with('fasilitaskamar')->find($id);
-        return view('datakamar.detaildatapemesanan', compact('fasilitaskamar','datapemesanan'));
+        $datapemesanan = Datapemesanan::with('fasilitashotel','fasilitaskamar')->find($id);
+        return view('datakamar.detaildatapemesanan', compact('fasilitaskamar','datapemesanan','fasilitashotel'));
     }
 
 
@@ -34,11 +37,28 @@ class CheckpemesananController extends Controller
      */
     public function create()
     {
+        $fasilitashotel = Fasilitashotel::all();
         $fasilitaskamar = Fasilitaskamar::all();
-        $datapemesanan = Datapemesanan::with('fasilitaskamar')->paginate('5');
-        return view('datakamar.datapemesanancreate', compact('datapemesanan','fasilitaskamar'));
+        $datapemesanan = Datapemesanan::with('fasilitashotel','fasilitaskamar')->paginate('5');
+        return view('datakamar.datapemesanancreate', compact('fasilitashotel','datapemesanan','fasilitaskamar'));
     }
 
+    public function exportpemesanan(PDF $pdfCreator)
+    {
+        $datapemesanan = Datapemesanan::all();
+        view()->share('datapemesanan', '$datapemesanan');
+        $pdf = $pdfCreator->loadView('datakamar.datapemesananpdf', ['datapemesanan' => $datapemesanan]);
+        return $pdf->download('datadatapemesanan.pdf');
+    }
+
+    public function changeStatus(Request $request)
+    {
+        $datapemesanan = Datapemesanan::find($request->datapemesanan_id);
+        $datapemesanan->status = $request->status;
+        $datapemesanan->save();
+  
+        return response()->json(['success'=>'Status change successfully.']);
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -70,9 +90,10 @@ class CheckpemesananController extends Controller
      */
     public function edit($id)
     {
+        $fasilitashotel = Fasilitashotel::all();
         $fasilitaskamar = Fasilitaskamar::all();
         $datapemesanan = Datapemesanan::findorfail($id);
-        return view('datakamar.datapemesananedit', compact('fasilitaskamar','datapemesanan'));
+        return view('datakamar.datapemesananedit', compact('fasilitashotel','fasilitaskamar','datapemesanan'));
     }
 
     /**
@@ -85,10 +106,21 @@ class CheckpemesananController extends Controller
     public function update(Request $request, $id)
     {
         $datapemesanan = Datapemesanan::findorfail($id);
-        $datapemesanan -> update($request->all());
-        $datapemesanan->save(); 
-
-        return redirect('checkpemesanan')->with('success', 'Data Pemesanan berhasil diedit');
+        $datapemesanan->update([
+            'bprorng' => $request->bprorng,
+            'fasilitaskamar_id' => $request->fasilitaskamar_id,
+            'fasilitashotel_id' => $request->fasilitashotel_id,
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'email' => $request->email,
+            'jumlahkamar_pinjam' => $request->jumlahkamar_pinjam,
+            'status' => $request->status,
+            'notelp' => $request->notelp,
+            'tanggal_checkin' => $request->tanggal_checkin,
+            'tanggal_checkout' => $request->tanggal_checkout,
+            'spesialrequest' => $request->spesialrequest,
+        ]);
+        return redirect('checkpemesanan')->with('success','Data Pemesanan Berhasil Di Edit');
     }
 
     /**

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Yajra\DataTables\DataTables;
-use App\Models\Fasilitashotel;
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
+use App\Models\Fasilitashotel;
+use Yajra\DataTables\DataTables;
 
 class FasilitashotelController extends Controller
 {
@@ -29,6 +30,15 @@ class FasilitashotelController extends Controller
         $fasilitashotel = Fasilitashotel::find($id);
         return view('fasilitashotel.detailfasilitashotel', compact('fasilitashotel'));
     }
+
+    public function exporthotel(PDF $pdfCreator)
+    {
+        $fasilitashotel = Fasilitashotel::all();
+        view()->share('fasilitashotel', '$fasilitashotel');
+        $pdf = $pdfCreator->loadView('fasilitashotel.fasilitashotelpdf', ['fasilitashotel' => $fasilitashotel]);
+        return $pdf->download('datafasilitashotel.pdf');
+    }
+
     public function create()
     {
         return view('fasilitashotel/fasilitashotelcreate');
@@ -46,7 +56,8 @@ class FasilitashotelController extends Controller
         $ptFile = $pt->getClientOriginalName();
         $pt->move(public_path().'/img',$ptFile);
         Fasilitashotel::create([
-            'namafasilitas' => $request->namafasilitas,
+            'namahotel' => $request->namahotel,
+            'alamat' => $request->alamat,
             'keterangan' => $request->keterangan,
             'image' => $ptFile,
         ]);

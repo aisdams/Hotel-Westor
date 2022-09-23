@@ -1,8 +1,10 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\Datapemesanan;
+use App\Models\Fasilitashotel;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -20,8 +22,11 @@ return new class extends Migration
             $table->string('lastname');
             $table->string('email');
             $table->string('notelp');
+            $table->string('status');
+            $table->foreignId('fasilitashotel_id')->nullable();
             $table->foreignId('fasilitaskamar_id');
             $table->text('spesialrequest')->nullable();
+            $table->integer('jumlahkamar_pinjam');
             $table->date('tanggal_checkin');
             $table->date('tanggal_checkout');
             $table->timestamps();

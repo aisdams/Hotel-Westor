@@ -28,7 +28,7 @@
       <link rel="stylesheet" href="{{ asset('template1/css/perfect-scrollbar.css') }}" />
       <!-- custom css -->
       <link rel="stylesheet" href="{{ asset('template1/css/custom.css') }}" />
-        <!-- Toastr Link -->
+      <!-- Toastr Link -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
       @stack('style')
       <!-- General CSS Files -->

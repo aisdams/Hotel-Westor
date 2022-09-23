@@ -1,4 +1,4 @@
-@extends('layout1')
+@extends('layout')
 @section('judul','Detail Data Pemesanan')
 @section('content')
 <div class="row">
@@ -19,9 +19,9 @@
                             <th>Number Of Guest</th>
                             <td>:</td>
                             <td>{{ $datapemesanan->bprorng }}</td> 
-                            <th>Room Type</th>
+                            <th>Nama Hotel</th>
                             <td>:</td>
-                            <td>{{ $datapemesanan->fasilitaskamar->tipekamar }}</td>
+                            <td>{{ $datapemesanan->fasilitashotel->namapemesanan }}</td>
                         </tr>
                         <tr>
                             <th>Firstname</th>
@@ -48,7 +48,10 @@
                             <td>{{ $datapemesanan->tanggal_checkout }}</td>
                         </tr>
                         <tr>
-                            <th>Tanggal Check In</th>
+                            <th>Room Type</th>
+                            <td>:</td>
+                            <td>{{ $datapemesanan->fasilitaskamar->tipekamar }}</td>
+                            <th>Special Request</th>
                             <td>:</td>
                             <td>{{ $datapemesanan->spesialrequest }}</td>
                         </tr>

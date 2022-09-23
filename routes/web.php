@@ -56,6 +56,7 @@ Route::get('/fasilitashotel/detail/{id}',[FasilitashotelController::class,'detai
 Route::get('/fasilitaskamar/detail/{id}',[FasilitaskamarController::class,'detail'])->name('detail');
 Route::get('/checkpemesanan/detail/{id}',[CheckpemesananController::class,'detail'])->name('detail');
 Route::get('/dataresepsionis/detail/{id}',[DataResepsionisController::class,'detail'])->name('detail');
+Route::get('/mytrip/cetakinvoice/{id}',[DatapemesananController::class,'cetakinvoice'])->name('cetakinvoice');
 
 // ========== E N D - D E T A I L ==========
 
@@ -65,6 +66,13 @@ Route::resource('/index/account/mytrip', DatapemesananController::class)->middle
 Route::resource('dataresepsionis', DataResepsionisController::class)->middleware('auth');
 Route::resource('checkpemesanan', CheckpemesananController::class)->middleware('auth');
 
+Route::get('changeStatus', [CheckpemesananController::class,'changeStatus'])->name('changeStatus');
+
+// =================== Export PDF =================== //
+Route::get('/exporthotel', [FasilitashotelController::class, 'exporthotel'])->name('hotelpdf');
+// =================== Export PDF =================== //
+Route::get('/exportkamar', [FasilitaskamarController::class, 'exportkamar'])->name('kamarpdf');
+Route::get('/exportpemesanan', [CheckpemesananController::class, 'exportpemesanan'])->name('pemesananpdf');
 
 // ========== T A M U ==========
 Route::get('/', function () {

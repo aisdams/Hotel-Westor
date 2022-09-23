@@ -1,4 +1,4 @@
-@extends('layout1')
+@extends('layout')
 @section('judul','Detail Data Pemesanan')
 @section('content')
 <div class="row">
@@ -48,7 +48,7 @@
                             <td>{{ $datapemesanan->tanggal_checkout }}</td>
                         </tr>
                         <tr>
-                            <th>Tanggal Check In</th>
+                            <th>Special Request</th>
                             <td>:</td>
                             <td>{{ $datapemesanan->spesialrequest }}</td>
                         </tr>

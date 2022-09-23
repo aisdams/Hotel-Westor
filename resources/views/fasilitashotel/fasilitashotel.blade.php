@@ -1,4 +1,4 @@
-@extends('layout1')
+@extends('layout')
 @section('judul','Fasilitas Hotel')
 @section('content')
 @push('style')
@@ -9,17 +9,20 @@
     table.dataTable thead .sorting_desc:before,
     table.dataTable thead .sorting_asc_disabled:before,
     table.dataTable thead .sorting_desc_disabled:before {
-        right: 1em;
-        font-size: 30px !important;
+      right: 1em;
+      content: "\2191" !important;
+      font-size: 18px !important;
+      margin-bottom: .3rem !important;
     }
-
     table.dataTable thead .sorting:after,
     table.dataTable thead .sorting_asc:after,
     table.dataTable thead .sorting_desc:after,
     table.dataTable thead .sorting_asc_disabled:after,
     table.dataTable thead .sorting_desc_disabled:after {
-        right: 0.5em;
-        font-size: 30px !important;
+      right: 0.5em;
+      content: "\2193" !important;
+      font-size: 18px !important;
+      margin-bottom: .3rem !important;
     }
 </style>
 @endpush
@@ -27,12 +30,13 @@
     <div class="card-body">
         <a href="{{ url('fasilitashotel/create') }}" class="btn btn-icon icon-left btn-primary mb-4"><i
                 class="fas fa-plus"></i><span class="px-2">Tambah</span></a>
-        <a href="" class="btn btn-icon icon-left btn-danger mb-4"></i><i class="fa-solid fa-file-pdf"></i><span class="px-2">Export PDF</span></a>
-        <table class="table table-bordered dataTable" id="fasilitas">
-            <thead style="font-size: 14px"  class="table-dark">
+        <a href="/exporthotel" class="btn btn-icon icon-left btn-danger mb-4"></i><i class="fa-solid fa-file-pdf"></i><span class="px-2">Export PDF</span></a>
+        <table class="table table-bordered table-hover dataTable table-sm" id="fasilitas">
+            <thead style="font-size: 14px"  class="table-success">
                 <tr>
                     <th scope="col">No</th>
-                    <th scope="col">Nama Fasilitas</th>
+                    <th scope="col">Nama Hotel</th>
+                    <th scope="col">Alamat</th>
                     <th scope="col">Keterangan</th>
                     <th scope="col">Image</th>
                     <th scope="col">Action</th>
@@ -42,9 +46,10 @@
                 @foreach ( $fasilitashotel as $item )
                 <tr>
                     <th scope="row">{{ $loop->iteration }}</th>
-                    <td>{{ $item->namafasilitas }}</td>
+                    <td>{{ $item->namahotel }}</td>
+                    <td>{{ $item->alamat }}</td>
                     <td>{{ $item->keterangan }}</td>
-                    <td><img src="{{ asset('img/'.$item->image) }}" alt="" style="width: 100px; position:relative;"></td>
+                    <td><img src="{{ asset('img/'.$item->image) }}" alt="" style="width: 200px; position:relative;"></td>
                     <td style="display: flex">
                         <div class="dis d-flex">
                             <a href="{{ url('/fasilitashotel/detail/'.$item->id)}}" class="btn btn-icon btn-info ms-1 text-white"><i

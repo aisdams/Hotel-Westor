@@ -40,23 +40,8 @@ class AkunSeeder extends Seeder
         ]
 
         ];
-        $fasilitashotel = [
-            [
-                'namafasilitas' => 'Bathroom',
-                'keterangan' => 'Good',
-                'image' => 'bathroom.png'
-            ],
-            [
-                'namafasilitas' => 'Park',
-                'keterangan' => 'Good',
-                'image' => 'taman.jpeg'
-            ]
-        ];
         foreach ($user as $key => $value) {
             User::create($value);
         } 
-        foreach ($fasilitashotel as $key => $value) {
-            Fasilitashotel::create($value);
-        }
     }
 }

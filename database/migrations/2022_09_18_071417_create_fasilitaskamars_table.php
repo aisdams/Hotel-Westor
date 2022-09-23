@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->enum('tipekamar',['Standar Room','Superior Room','Deluxe Room','Twin Room','Presidential Suite','Murphy Room','Cabana Room','Penthouse Room']);
             $table->foreignId('fasilitashotel_id');
+            $table->string('fasilitaskamar');
             $table->integer('jumlahkamar');
             $table->integer('jumlahkamar_tersedia');
             $table->integer('jumlahkamar_takterpakai');

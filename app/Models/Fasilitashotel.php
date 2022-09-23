@@ -11,9 +11,12 @@ class Fasilitashotel extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'namafasilitas','keterangan','image'
+        'namahotel','alamat','keterangan','image'
     ];
     public function fasilitaskamar(){
         return $this->hasMany(Fasilitaskamar::class);
+    }
+    public function datapemesanan(){
+        return $this->hasMany(Datapemesanan::class);
     }
 }
