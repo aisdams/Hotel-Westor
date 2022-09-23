@@ -30,13 +30,6 @@ class AkunSeeder extends Seeder
             'level' => 'resepsionis',
             'notelp' => '082223834',
             'password' => bcrypt('apa123'),
-        ],
-        [
-            'username' => 'suho',
-            'email' => 'suho@gmail,com',
-            'level' => 'tamu',
-            'notelp' => '081234343',
-            'password' => bcrypt('suho123'),
         ]
 
         ];
