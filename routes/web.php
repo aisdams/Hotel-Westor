@@ -56,6 +56,7 @@ Route::get('/fasilitashotel/detail/{id}',[FasilitashotelController::class,'detai
 Route::get('/fasilitaskamar/detail/{id}',[FasilitaskamarController::class,'detail'])->name('detail');
 Route::get('/checkpemesanan/detail/{id}',[CheckpemesananController::class,'detail'])->name('detail');
 Route::get('/dataresepsionis/detail/{id}',[DataResepsionisController::class,'detail'])->name('detail');
+Route::get('index/account/mytrip/detail/{id}',[DatapemesananController::class,'detail'])->name('detail');
 Route::get('/mytrip/cetakinvoice/{id}',[DatapemesananController::class,'cetakinvoice'])->name('cetakinvoice');
 
 // ========== E N D - D E T A I L ==========

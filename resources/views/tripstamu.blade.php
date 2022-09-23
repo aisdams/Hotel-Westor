@@ -42,7 +42,7 @@
                     <td>{{ $item->tanggal_checkin }}</td>
                     <td>{{ $item->tanggal_checkout }}</td>
                     <td style="display: flex">
-                            <a href="{{ url('/fasilitashotel/detail/'.$item->id) }}" class="btn btn-icon btn-info ms-1 pt-1 text-white"><i class="fas fa-eye"></i></a>
+                            <a href="{{ url('index/account/mytrip/detail/'.$item->id) }}" class="btn btn-icon btn-info ms-1 pt-1 text-white"><i class="fas fa-eye"></i></a>
                             <a href="{{ url('/mytrip/cetakinvoice/'.$item->id) }}" class="btn btn-icon btn-info ms-1 pt-1 text-white"><i class="fa-solid fa-print"></i></a>
                             <form action="{{ url('index/account/mytrip',$item->id) }}" method="POST">
                                 @csrf

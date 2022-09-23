@@ -1,14 +1,14 @@
-@extends('layout')
+@extends('tamulayout')
 @section('judul','Detail Data Pemesanan')
 @section('content')
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 mt-4">
         <div class="card">
             <div class="card-body">
         <div class="box box-warnin`g">
             <div class="box-header">
                 <p>
-                    <a href="{{ url('checkpemesanan') }}" class="btn btn-sm btn-flat btn-primary mb-3"><i class="fa-solid fa-circle-arrow-left"></i> Back</a>
+                    <a href="{{ url('/index/account/mytrip') }}" class="btn btn-sm btn-flat btn-primary mb-3"><i class="fa-solid fa-circle-arrow-left"></i> Back</a>
                 </p>
             </div>
             <div class="box-body">
@@ -16,12 +16,12 @@
                 <table class="table table-stripped text-dark fw-bold">
                     <tbody>
                         <tr>
-                            <th>Number Of Guest</th>
-                            <td>:</td>
-                            <td>{{ $datapemesanan->bprorng }}</td> 
                             <th>Nama Hotel</th>
                             <td>:</td>
                             <td>{{ $datapemesanan->fasilitashotel->namahotel }}</td>
+                            <th>Number Of Guest</th>
+                            <td>:</td>
+                            <td>{{ $datapemesanan->bprorng }}</td> 
                         </tr>
                         <tr>
                             <th>Firstname</th>

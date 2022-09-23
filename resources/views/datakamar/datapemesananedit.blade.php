@@ -11,7 +11,7 @@
             <div class="col mb-3">
                 <label class="form-label">Nama Hotel</label>
               <select required class="form-control form-select" name="fasilitashotel_id" id="fasilitashotel_id">
-                <option selected disabled>Choose Room Type</option>
+                <option selected disabled>Choose Nama Hotel</option>
                 @foreach ($fasilitashotel as $item)
                 <option value="{{ $item->id }}">{{ $item->namahotel }}</option>
                 @endforeach

@@ -28,7 +28,7 @@ class DatapemesananController extends Controller
         $fasilitashotel = Fasilitashotel::find($id);
         $fasilitaskamar = Fasilitaskamar::find($id);
         $datapemesanan = Datapemesanan::with('fasilitashotel','fasilitaskamar')->find($id);
-        return view('', compact('fasilitashotel','fasilitaskamar','datapemesanan'));
+        return view('detailpemesanan', compact('fasilitashotel','fasilitaskamar','datapemesanan'));
     }
     
     public function cetakinvoice(PDF $pdfCreator, $id)
